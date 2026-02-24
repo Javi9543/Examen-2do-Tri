@@ -9,19 +9,49 @@ def agregar_tareas(tareas, titulo):
 def listar_tareas(tareas):
     print("-- Lista de Tareas --")
     for i in tareas:
-        print (i)
+        if i != tareas[True]:
+            print(f'[] {i}')
+        else:
+            print(f'[x] {i}')
             
 def main():
-    tarea1 = {"titulo": "Estudiar_python","hecho": False}
+    tarea1 = {"titulo": "Estudiar_python","hecho":False}
     tarea2 = {"titulo": "Hacer_Ejercicio", "hecho": True}
     tarea3 = {"titulo": "Leer 10 páginas", "hecho" : False}
     
     tareas = [tarea1, tarea2, tarea3]
     
+    while True:
+        try:
+            print("-- Menu principal --")
+            print(" 1 - Listar tareas")
+            print(" 2 - Agregar tareas ")
+            print(" 3 - Marcar hecha ")
+            print(" 4 - listar tareas " )
+            print(" 5 - Salir ")
+            
+            opc = int(input("introduzca una opción del 1 - 4 (5 para salir): "))
+            
+            if opc == 1:   
+                listar_tareas(tareas)
+                input ("ENTER para continuar")
+                
+            elif opc == 2:
+                nuevaTarea = input("Introduce el nombre de la tarea: ")
+                agregar_tareas(tareas, nuevaTarea)
+                input("Enter para continuar")
+                
+            elif opc == 3:
+                print("en proceso...")
+            
+            elif opc == 4:
+                print("en proceso")
+            
+            elif opc == 5:
+                print("Saliendo del programa...")
+                break
+        except ValueError:
+            print("Introduzca solo numeros enteros")
     
-    nuevaTarea = input("Introduce el nombre de la tarea: ")
-    agregar_tareas(tareas, nuevaTarea)
-    
-    listar_tareas(tareas)
 if __name__ == "__main__":
     main()
