@@ -3,7 +3,7 @@ def agregar_tareas(tareas, titulo):
         if titulo not in tareas:
             tareas.append("tarea4")
         
-        tareas = {"titulo": titulo, "hecho":False}
+        tareas = {"titulo": titulo, "hecho":True}
         
         
 def listar_tareas(tareas):
@@ -13,6 +13,15 @@ def listar_tareas(tareas):
             print(f'[] {i}')
         else:
             print(f'[x] {i}')
+            
+def contar_pendientes(tareas):
+    contador = 0
+    for i in tareas:
+        if i == tareas[False]:
+            contador += 1
+        
+    print("Numero de tareas Pendientes: ", contador)
+            
             
 def main():
     tarea1 = {"titulo": "Estudiar_python","hecho":False}
@@ -27,7 +36,7 @@ def main():
             print(" 1 - Listar tareas")
             print(" 2 - Agregar tareas ")
             print(" 3 - Marcar hecha ")
-            print(" 4 - listar tareas " )
+            print(" 4 - Ver Tareas Pendientes " )
             print(" 5 - Salir ")
             
             opc = int(input("introduzca una opción del 1 - 4 (5 para salir): "))
@@ -45,7 +54,8 @@ def main():
                 print("en proceso...")
             
             elif opc == 4:
-                print("en proceso")
+                contar_pendientes(tareas)
+                input("Enter para continuar")
             
             elif opc == 5:
                 print("Saliendo del programa...")
