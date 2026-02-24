@@ -7,26 +7,30 @@ def agregar_tareas(tareas, titulo):
         
         
 def listar_tareas(tareas):
+    contador = 0
     print("-- Lista de Tareas --")
     for i in tareas:
+        contador += 1
         for j in i:
-            if i == tareas[True]:
-                print('[]', i)
-            else:
+            if  i == tareas[True]:
                 print('[x]', i)
+            else:
+                print('[]', i)
                 
 def contar_pendientes(tareas):
     contador = 0
     for i in tareas:
         for j in i:
-            if i == tareas[False]:
+            if i == tareas[True]:
                 contador += 1
+                
+                
         
     print("Numero de tareas Pendientes: ", contador)
             
             
 def main():
-    tarea1 = {"titulo": "Estudiar_python","hecho":False}
+    tarea1 = {"titulo": "Estudiar_python","hecho": False}
     tarea2 = {"titulo": "Hacer_Ejercicio", "hecho": True}
     tarea3 = {"titulo": "Leer 10 páginas", "hecho" : False}
     
@@ -54,6 +58,7 @@ def main():
                 
             elif opc == 3:
                 print("en proceso...")
+                input("Enter para continuar")
             
             elif opc == 4:
                 contar_pendientes(tareas)
