@@ -9,16 +9,18 @@ def agregar_tareas(tareas, titulo):
 def listar_tareas(tareas):
     print("-- Lista de Tareas --")
     for i in tareas:
-        if i != tareas[True]:
-            print(f'[] {i}')
-        else:
-            print(f'[x] {i}')
-            
+        for j in i:
+            if i == tareas[True]:
+                print('[]', i)
+            else:
+                print('[x]', i)
+                
 def contar_pendientes(tareas):
     contador = 0
     for i in tareas:
-        if i == tareas[False]:
-            contador += 1
+        for j in i:
+            if i == tareas[False]:
+                contador += 1
         
     print("Numero de tareas Pendientes: ", contador)
             
